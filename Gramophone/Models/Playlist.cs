@@ -7,5 +7,6 @@ namespace Gramophone.Models
         [Key]
         public int Id { get; set; }
         public List<Listener> Users { get; set; }
+        public List<Actor> Actors { get; set; }
     }
 }
