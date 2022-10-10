@@ -11,26 +11,51 @@
                 <div class="img-reg-actor">
                     <img src="~/images/actor_reg.png" alt="" />
                 </div>
-                <form action="">
+                <form method="post">
                     <div class="form-item">
                         <label for="login"><b>Логин</b></label>
-                        <input type="text" name="name" />
+                        <div class="input-and-er">
+                            <input asp-for="Actor.Name" />
+                            <div class="error">
+                                <span asp-validation-for="Actor.Name"></span>
+                            </div>
+                        </div>
                     </div>
                     <div class="form-item">
                         <label for="email"><b>Email</b></label>
-                        <input type="text" name="email" />
+                        <div class="input-and-er">
+                            <input asp-for="Actor.Email" />
+                            <div class="error">
+                                <span asp-validation-for="Actor.Email"></span>
+                            </div>
+                        </div>
                     </div>
                     <div class="form-item">
                         <label for="psw"><b>Пароль</b></label>
-                        <input type="password" name="psw" />
+                        <div class="input-and-er">
+                            <input type="password" asp-for="Actor.Password" />
+                            <div class="error">
+                                <span asp-validation-for="Actor.Password"></span>
+                            </div>
+                        </div>
                     </div>
                     <div class="form-item">
                         <label for="psw-repeat"><b>Подтверждение пароля</b></label>
-                        <input type="password" name="psw-repeat" />
+                        <div class="input-and-er">
+                            <input type="password" asp-for="CheckPassword" />
+                            <div class="error">
+                                <span asp-validation-for="CheckPassword"></span>
+                            </div>
+                        </div>
                     </div>
                     <div class="form-item">
                         <label for="label"><b>Название лейбла</b></label>
-                        <input type="text" name="label" />
+                        <div class="input-and-er">
+                            <input asp-for="Actor.Label" />
+                            <div class="error">
+                                <span asp-validation-for="Actor.Label"></span>
+                            </div>
+                        </div>
                     </div>
 
                     <button type="submit" class="registerbtn">

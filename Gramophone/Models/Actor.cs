@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace Gramophone.Models
 {
     [Table("Actors")]
-    public class Actor: User
+    public class Actor : User
     {
         [Key]
         public List<Playlist>? Playlists { get; set; }
