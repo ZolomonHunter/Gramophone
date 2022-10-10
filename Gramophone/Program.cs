@@ -1,7 +1,12 @@
+using Gramophone.Data;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+builder.Services.AddDbContext<ApplicationDbContext>(option=>option.UseSqlServer(
+        builder.Configuration.GetConnectionString("DefaultString")));
 
 var app = builder.Build();
 
