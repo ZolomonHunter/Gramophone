@@ -281,7 +281,10 @@ form {
 .error {
     color: #FFDEAD;
     font-size: 15px;
-    margin: 0;
+    position: fixed;
+    color: black;
+    z-index: 999; 
+    
 }
 
 .form-item label {
