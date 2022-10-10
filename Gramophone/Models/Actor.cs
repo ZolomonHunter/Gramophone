@@ -7,18 +7,18 @@ namespace Gramophone.Models
     public class Actor: User
     {
         [Key]
-        public List<Playlist> _playlists;
+        public List<Playlist> Playlists { get; set; }
 
-        public Label _label;
+        public string Label { get; set; }
 
         public void AddPlayList(Playlist pl)
         {
-            _playlists.Add(pl);
+            Playlists.Add(pl);
         }
 
-        public void ChangeLabel(Label lb)
+        public void ChangeLabel(string lb)
         {
-            _label = lb;
+            Label = lb;
         }
     }
 }
