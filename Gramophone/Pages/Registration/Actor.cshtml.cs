@@ -11,7 +11,7 @@ namespace Gramophone.Pages.Registration
         [BindProperty]
         public Actor Actor { get; set; }
         [BindProperty]
-        public string CheckPassword { get; set; }
+        public string? CheckPassword { get; set; }
 
         public ActorModel(ApplicationDbContext db)
         {

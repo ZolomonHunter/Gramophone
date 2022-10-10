@@ -9,7 +9,7 @@ namespace Gramophone.Pages.Registration
     {
         private readonly ApplicationDbContext _db;
         [BindProperty]
-        public Listener? Listener { get; set; }
+        public Listener Listener { get; set; }
         [BindProperty]
         public string? CheckPassword { get; set; }
 

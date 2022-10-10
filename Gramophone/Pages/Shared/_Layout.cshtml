@@ -20,16 +20,16 @@
                 <nav class="menu" id="navbar">
                     <ul>
                         <li class="menu-item">
-                            <a href="#about">О сайте</a>
+                            <a href="/Index#about">О сайте</a>
                         </li>
                         <li class="menu-item">
-                            <a href="#contact">Контакты</a>
+                            <a href="/Index#contact">Контакты</a>
                         </li>
                         <li class="menu-item">
-                            <a asp-page="Login">Войти</a>
+                            <a asp-page="/Login">Войти</a>
                         </li>
                         <li class="menu-item">
-                            <a asp-page="Registration/Index">Регистрация</a>
+                            <a asp-page="/Registration/Index">Регистрация</a>
                         </li>
                     </ul>
                 </nav>
@@ -37,7 +37,6 @@
         </header>
 
         @RenderBody()
-
 
         <footer class="footer">
             <div class="container">

@@ -8,7 +8,7 @@ namespace Gramophone.Models
     {
         [Key]
         public List<Playlist>? Playlists { get; set; }
-
+        [Required(ErrorMessage = "Поле не может быть пустым")]
         public string? Label { get; set; }
 
         public void AddPlayList(Playlist pl)
