@@ -1,0 +1,202 @@
+﻿@page
+@model Gramophone.Pages.PlayerModel
+@{
+}
+
+<div class="player-nav">
+    <div class="container">
+        <div class="player-menu">
+            <div class="searching">
+                <input type="search"
+                       placeholder="Трек, альбом, исполнитель"
+                       class="search-field" />
+                <img src="images/search.png" alt="" class="search-icon" />
+            </div>
+
+            <div class="btn-menu">
+                <a href="#">Моя музыка</a>
+            </div>
+            <div class="btn-menu">
+                <a href="#">Рекомендации</a>
+            </div>
+            <div class="btn-menu">
+                <a href="#">Новинки</a>
+            </div>
+            <div class="btn-menu">
+                <a href="index.html">Главная</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="carousel"
+     class="carousel slide carousel-fade d-inline-block"
+     data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#carousel" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel" data-slide-to="1"></li>
+        <li data-target="#carousel" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img class="img-fluid" src="images/Rectangle 18.png" alt="..." />
+            <div class="carousel-caption d-none d-md-block slider-text">
+                <h2>Твои пластинки слушала я</h2>
+                <h2 style="margin-left: 40px">И в каждой находила себя...</h2>
+                <p>10 суперхитов группы Винтаж</p>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img class="img-fluid" src="images/Rectangle 18.png" alt="..." />
+        </div>
+        <div class="carousel-item">
+            <img class="img-fluid" src="images/Rectangle 18.png" alt="..." />
+        </div>
+    </div>
+
+    <a class="carousel-control-prev"
+       href="#carousel"
+       role="button"
+       data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Предыдущий</span>
+    </a>
+    <a class="carousel-control-next"
+       href="#carousel"
+       role="button"
+       data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Следующий</span>
+    </a>
+</div>
+
+<section class="genre">
+    <div class="container">
+        <h3 class="genre-title">Жанры</h3>
+        <div class="genre-slider">
+            <div class="slider">
+                <a href="">
+                    <div class="genre-image">
+                        <img src="images/genre/genre-1.png" alt="" />
+                    </div>
+                </a>
+            </div>
+            <div class="slider">
+                <a href="">
+                    <div class="genre-image">
+                        <img src="images/genre/genre-2.png" alt="" />
+                    </div>
+                </a>
+            </div>
+            <div class="slider">
+                <a href="">
+                    <div class="genre-image">
+                        <img src="images/genre/genre-3.png" alt="" />
+                    </div>
+                </a>
+            </div>
+            <div class="slider">
+                <a href="">
+                    <div class="genre-image">
+                        <img src="images/genre/genre-2.png" alt="" />
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+<hr />
+
+<section class="popular-music">
+    <div class="container">
+        <h3 class="genre-title">Популярные треки сегодня</h3>
+        <div class="list-music">
+            <div class="music-item">
+                <div class="img">
+                    <img src="images/popular-music/shape.png" alt="" />
+                </div>
+                <div class="music-desc1">
+                    <div class="name">Shape of my heart</div>
+                    <div class="musician">Sting</div>
+                </div>
+                <div class="music-desc2">
+                    <div class="like"><img src="images/like.png" alt=""></div>
+                    <div class="music-time">4:36</div>
+                </div>
+            </div>
+
+
+            <div class="music-item">
+                <div class="img">
+                    <img src="images/popular-music/lithium.png" alt="" />
+                </div>
+                <div class="music-desc1">
+                    <div class="name">Lithium</div>
+                    <div class="musician">Nirvana</div>
+                </div>
+                <div class="music-desc2">
+                    <div class="like"><img src="images/like.png" alt=""></div>
+                    <div class="music-time">4:17</div>
+                </div>
+            </div>
+
+
+            <div class="music-item">
+                <div class="img">
+                    <img src="images/popular-music/shape.png" alt="" />
+                </div>
+                <div class="music-desc1">
+                    <div class="name">Shape of my heart</div>
+                    <div class="musician">Sting</div>
+                </div>
+                <div class="music-desc2">
+                    <div class="like"><img src="images/like.png" alt=""></div>
+                    <div class="music-time">4:36</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<hr />
+
+<section class="genre">
+    <div class="container">
+        <h3 class="genre-title">Популярные плейлисты</h3>
+        <div class="genre-slider playlist">
+            <div class="slider">
+                <a href="">
+                    <div class="genre-image ">
+                        <img src="images/playlists/2000.png" alt="" />
+                        <div class="playlist-text">Супер-хиты: 2000 г.</div>
+                    </div>
+                </a>
+            </div>
+            <div class="slider">
+                <a href="">
+                    <div class="genre-image">
+                        <img src="images/playlists/sleep.png" alt="" />
+                        <div class="playlist-text">Для сна</div>
+                    </div>
+                </a>
+            </div>
+            <div class="slider">
+                <a href="">
+                    <div class="genre-image">
+                        <img src="images/playlists/rus.png" alt="" />
+                        <div class="playlist-text">Русские хиты</div>
+                    </div>
+                </a>
+            </div>
+            <div class="slider">
+                <a href="">
+                    <div class="genre-image">
+                        <img src="images/playlists/sleep.png" alt="" />
+                        <div class="playlist-text">Для сна</div>
+                    </div>
+            </div>
+            </a>
+        </div>
+    </div>
+    </div>
+</section>

@@ -1,0 +1,36 @@
+﻿@page
+@model Gramophone.Pages.Registration.ListenerModel
+
+<section>
+    <div class="container">
+        <div class="reg-actor reg-listener">
+            <div class="reg-title">Регистрация слушателя</div>
+            <div class="reg-actor-wrap">
+                <div class="img-reg-actor">
+                    <img src="~/images/listener-reg.png" alt="" />
+                </div>
+                <form action="">
+                    <div class="form-item">
+                        <label for="login"><b>Логин</b></label>
+                        <input type="text" name="name" />
+                    </div>
+                    <div class="form-item">
+                        <label for="email"><b>Email</b></label>
+                        <input type="text" name="email" />
+                    </div>
+                    <div class="form-item">
+                        <label for="psw"><b>Пароль</b></label>
+                        <input type="password" name="psw" />
+                    </div>
+                    <div class="form-item">
+                        <label for="psw-repeat"><b>Подтверждение пароля</b></label>
+                        <input type="password" name="psw-repeat" />
+                    </div>
+                    <button type="submit" class="registerbtn">
+                        <div class="title-reg">Зарегистрироваться</div>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
