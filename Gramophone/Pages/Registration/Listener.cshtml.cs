@@ -9,8 +9,9 @@ namespace Gramophone.Pages.Registration
     {
         private readonly ApplicationDbContext _db;
         [BindProperty]
-        public Listener Listener { get; set; }
-        public string CheckPassword { get; set; }
+        public Listener? Listener { get; set; }
+        [BindProperty]
+        public string? CheckPassword { get; set; }
 
         public ListenerModel(ApplicationDbContext db)
         {
@@ -22,7 +23,7 @@ namespace Gramophone.Pages.Registration
 
         public async Task<IActionResult> OnPost()
         {
-            if (Listener.Password != CheckPassword)
+            if (String.Compare(CheckPassword, Listener.Password) != 0)
                 ModelState.AddModelError("CheckPassword", "Пароли не совпадают");
             if (ModelState.IsValid)
             {

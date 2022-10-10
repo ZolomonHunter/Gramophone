@@ -283,8 +283,7 @@ form {
     font-size: 15px;
     position: fixed;
     color: black;
-    z-index: 999; 
-    
+    z-index: 999;  
 }
 
 .form-item label {

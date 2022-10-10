@@ -7,9 +7,9 @@ namespace Gramophone.Models
     public class Actor: User
     {
         [Key]
-        public List<Playlist> Playlists { get; set; }
+        public List<Playlist>? Playlists { get; set; }
 
-        public string Label { get; set; }
+        public string? Label { get; set; }
 
         public void AddPlayList(Playlist pl)
         {

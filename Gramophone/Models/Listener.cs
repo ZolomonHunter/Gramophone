@@ -7,6 +7,6 @@ namespace Gramophone.Models
     public class Listener : User
     {
         [Key]
-        public List<Playlist> Playlist { get; set; }
+        public List<Playlist>? Playlist { get; set; }
     }
 }
