@@ -1,8 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Gramophone.Interfaces;
+using System.ComponentModel.DataAnnotations;
+using System.Diagnostics;
 
 namespace Gramophone.Models
 {
-    public class User
+    public class User: IUser
     {
         [Key]
         public int Id { get; set; }
@@ -13,6 +15,19 @@ namespace Gramophone.Models
         [Required(ErrorMessage = "Поле не может быть пустым")]
         public string Password { get; set; }
 
-        
+        public void Auth()
+        {
+
+        }
+
+        public void DeleteAccount()
+        {
+
+        }
+
+        public void Logout()
+        {
+
+        }
     }
 }
