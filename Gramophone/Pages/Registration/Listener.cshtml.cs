@@ -54,15 +54,20 @@ namespace Gramophone.Pages.Registration
                 listener.UserName = Name;
                 listener.Email = Email;
                 var result = await _userManager.CreateAsync(listener, Password);
-                foreach (var error in result.Errors)
+                if (result.Succeeded)
                 {
-                    ModelState.AddModelError(string.Empty, error.Description);
+                    await _signInManager.SignInAsync(listener, false);
+                    return RedirectToPage("/Index");
                 }
-                return Page();
+                else
+                {
+                    foreach (var error in result.Errors)
+                        ModelState.AddModelError(string.Empty, error.Description);
+                    return Page();
+                }
             }
             else
             { return Page(); }
-            return RedirectToPage("/Index");
         }
     }
 }

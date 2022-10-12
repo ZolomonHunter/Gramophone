@@ -58,15 +58,22 @@ namespace Gramophone.Pages.Registration
                 actor.Email = Email;
                 actor.Label = Label;
                 var result = await _userManager.CreateAsync(actor, Password);
-                foreach (var error in result.Errors)
+                if (result.Succeeded)
                 {
-                    ModelState.AddModelError(string.Empty, error.Description);
+                    await _signInManager.SignInAsync(actor, false);
+                    return RedirectToPage("/Index");
                 }
-                return Page();
+                else
+                {
+                    foreach (var error in result.Errors)
+                    {
+                        ModelState.AddModelError(string.Empty, error.Description);
+                    }
+                    return Page();
+                }
             }
             else
             { return Page(); }
-            return RedirectToPage("/Index");
         }
     }
 }
