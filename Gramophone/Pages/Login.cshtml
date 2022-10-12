@@ -4,20 +4,29 @@
 <section class="login">
     <div class="container">
         <div class="reg-title"><img src="~/images/enter 1.png" alt="">Вход в аккаунт</div>
-        <form action="">
+        <form method="post">
             <div class="form-item">
-                <label for="login"><b>Логин</b></label>
-                <input type="text" name="name" />
+                <label asp-for="Name"></label>
+                <div class="input-and-er">
+                    <input asp-for="Name" />
+                    <div class="error">
+                        <span asp-validation-for="Name"></span>
+                    </div>
+                </div>
             </div>
             <div class="form-item">
-                <label for="psw"><b>Пароль</b></label>
-                <input type="password" name="psw" />
+                <label asp-for="Password"></label>
+                <div class="input-and-er">
+                    <input asp-for="Password" />
+                    <div class="error">
+                        <span asp-validation-for="Password"></span>
+                    </div>
+                </div>
             </div>
             <button type="submit" class="registerbtn">
                 <div class="title-reg">Войти</div>
             </button>
         </form>
         <a href="registration.html" class="reg-link">Зарегистрироваться</a>
-        <
-    </div>>
+    </div>
 </section>
