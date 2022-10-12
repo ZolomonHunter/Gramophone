@@ -11,34 +11,34 @@
                 </div>
                 <form method="post">
                     <div class="form-item">
-                        <label for="login"><b>Логин</b></label>
+                        <label asp-for="Name"></label>
                         <div class="input-and-er">
-                            <input asp-for="Listener.UserName" />
+                            <input asp-for="Name" />
                             <div class="error">
-                                <span asp-validation-for="Listener.UserName"></span>
+                                <span asp-validation-for="Name"></span>
                             </div>
                         </div>
                     </div>
                     <div class="form-item">
-                        <label for="email"><b>Email</b></label>
+                        <label asp-for="Email"></label>
                         <div class="input-and-er">
-                            <input asp-for="Listener.Email" />
+                            <input asp-for="Email" />
                             <div class="error">
-                                <span asp-validation-for="Listener.Email"></span>
+                                <span asp-validation-for="Email"></span>
                             </div>
                         </div>
                     </div>
-                    @*<div class="form-item">
-                        <label for="psw"><b>Пароль</b></label>
+                    <div class="form-item">
+                        <label asp-for="Password"></label>
                         <div class="input-and-er">
-                            <input type="password" asp-for="Listener.Password" />
+                            <input type="password" asp-for="Password" />
                             <div class="error">
-                                <span asp-validation-for="Listener.Password"></span>
+                                <span asp-validation-for="Password"></span>
                             </div>
                         </div>
-                    </div>*@
+                    </div>
                     <div class="form-item">
-                        <label for="psw-repeat"><b>Подтверждение пароля</b></label>
+                        <label asp-for="CheckPassword"></label>
                         <div class="input-and-er">
                             <input type="password" asp-for="CheckPassword" />
                             <div class="error">

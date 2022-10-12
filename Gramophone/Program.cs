@@ -9,12 +9,15 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
 builder.Services.AddDbContext<ApplicationDbContext>(option=>option.UseSqlServer(
         builder.Configuration.GetConnectionString("DefaultString")));
-builder.Services.AddIdentity<Actor, IdentityRole>(options =>{
+builder.Services.AddIdentity<IdentityUser, IdentityRole>(options =>{
     options.User.RequireUniqueEmail = true;
     options.Password.RequiredLength = 8;
     options.Password.RequireNonAlphanumeric = false;
+    options.Password.RequireDigit = false;
     options.Password.RequireUppercase = false;
+    options.Password.RequireLowercase = false;
 }).AddEntityFrameworkStores<ApplicationDbContext>();
+
 
 var app = builder.Build();
 

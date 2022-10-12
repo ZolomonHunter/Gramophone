@@ -11,20 +11,24 @@ namespace Gramophone.Pages.Registration
     public class ActorModel : PageModel
     {
         private readonly ApplicationDbContext _db;
-        private readonly UserManager<Actor> _userManager;
-        private readonly SignInManager<Actor> _signInManager;
+        private readonly UserManager<IdentityUser> _userManager;
+        private readonly SignInManager<IdentityUser> _signInManager;
         [Required(ErrorMessage = "Поле не может быть пустым")]
         [Display(Name = "Имя пользователя")]
         public string Name { get; set; }
         [Required(ErrorMessage = "Поле не может быть пустым")]
         [DataType(DataType.EmailAddress)]
+        [Display(Name = "Электронная почта")]
         public string Email { get; set; }
         [Required(ErrorMessage = "Поле не может быть пустым")]
+        [MinLength(8, ErrorMessage = "Пароль должен содержать минимум 8 символов")]
         [DataType(DataType.Password)]
+        [Display(Name = "Пароль")]
         public string Password { get; set; }
         [Required(ErrorMessage = "Поле не может быть пустым")]
-        [Compare("Password", ErrorMessage ="Пароли не совпадают")]
+        [Compare("Password", ErrorMessage = "Пароли не совпадают")]
         [DataType(DataType.Password)]
+        [Display(Name = "Подтверждение пароля")]
 
         public string CheckPassword { get; set; }
         [Required(ErrorMessage = "Поле не может быть пустым")]
@@ -33,7 +37,7 @@ namespace Gramophone.Pages.Registration
         public string Label { get; set; }
 
 
-        public ActorModel(ApplicationDbContext db, UserManager<Actor> userManager, SignInManager<Actor> signInManager)
+        public ActorModel(ApplicationDbContext db, UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager)
         {
             _db = db;
             _userManager = userManager;
