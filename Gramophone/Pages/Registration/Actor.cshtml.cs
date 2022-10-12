@@ -17,7 +17,7 @@ namespace Gramophone.Pages.Registration
         [Display(Name = "Имя пользователя")]
         public string Name { get; set; }
         [Required(ErrorMessage = "Поле не может быть пустым")]
-        [DataType(DataType.EmailAddress)]
+        [RegularExpression("^([a-zA-Z0-9_\\-\\.]+)@([a-zA-Z0-9_\\-\\.]+)\\.([a-zA-Z]{2,5})$", ErrorMessage = "Некорректный формат почты")]
         [Display(Name = "Электронная почта")]
         public string Email { get; set; }
         [Required(ErrorMessage = "Поле не может быть пустым")]

@@ -12,13 +12,13 @@ namespace Gramophone.Pages.Registration
     public class ListenerModel : PageModel
     {
         private readonly ApplicationDbContext _db;
-        private readonly UserManager<Listener> _userManager;
-        private readonly SignInManager<Listener> _signInManager;
+        private readonly UserManager<IdentityUser> _userManager;
+        private readonly SignInManager<IdentityUser> _signInManager;
         [Required(ErrorMessage = "Поле не может быть пустым")]
         [Display(Name = "Имя пользователя")]
         public string Name { get; set; }
         [Required(ErrorMessage = "Поле не может быть пустым")]
-        [DataType(DataType.EmailAddress)]
+        [RegularExpression("^([a-zA-Z0-9_\\-\\.]+)@([a-zA-Z0-9_\\-\\.]+)\\.([a-zA-Z]{2,5})$", ErrorMessage = "Некорректный формат почты")]
         [Display(Name = "Электронная почта")]
         public string Email { get; set; }
         [Required(ErrorMessage = "Поле не может быть пустым")]
@@ -34,7 +34,7 @@ namespace Gramophone.Pages.Registration
         public string CheckPassword { get; set; }
 
 
-        public ListenerModel(ApplicationDbContext db, UserManager<Listener> userManager, SignInManager<Listener> signInManager)
+        public ListenerModel(ApplicationDbContext db, UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager)
         {
             _db = db;
             _userManager = userManager;
