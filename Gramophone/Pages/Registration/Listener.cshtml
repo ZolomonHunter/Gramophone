@@ -13,9 +13,9 @@
                     <div class="form-item">
                         <label for="login"><b>Логин</b></label>
                         <div class="input-and-er">
-                            <input asp-for="Listener.Name" />
+                            <input asp-for="Listener.UserName" />
                             <div class="error">
-                                <span asp-validation-for="Listener.Name"></span>
+                                <span asp-validation-for="Listener.UserName"></span>
                             </div>
                         </div>
                     </div>
@@ -28,7 +28,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-item">
+                    @*<div class="form-item">
                         <label for="psw"><b>Пароль</b></label>
                         <div class="input-and-er">
                             <input type="password" asp-for="Listener.Password" />
@@ -36,7 +36,7 @@
                                 <span asp-validation-for="Listener.Password"></span>
                             </div>
                         </div>
-                    </div>
+                    </div>*@
                     <div class="form-item">
                         <label for="psw-repeat"><b>Подтверждение пароля</b></label>
                         <div class="input-and-er">

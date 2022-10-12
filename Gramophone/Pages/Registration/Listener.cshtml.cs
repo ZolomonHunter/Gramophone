@@ -23,14 +23,14 @@ namespace Gramophone.Pages.Registration
 
         public async Task<IActionResult> OnPost()
         {
-            if (String.Compare(CheckPassword, Listener.Password) != 0)
+            /*if (String.Compare(CheckPassword, Listener.Password) != 0)
                 ModelState.AddModelError("CheckPassword", "Пароли не совпадают");
             if (ModelState.IsValid)
             {
                 await _db.Users.AddAsync(Listener);
                 await _db.SaveChangesAsync();
                 return RedirectToPage("Index");
-            }
+            }*/
             return Page();            
         }
     }

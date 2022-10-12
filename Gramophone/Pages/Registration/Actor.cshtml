@@ -12,30 +12,31 @@
                     <img src="~/images/actor_reg.png" alt="" />
                 </div>
                 <form method="post">
+                    <div asp-validation-summary="ModelOnly"></div>
                     <div class="form-item">
-                        <label for="login"><b>Логин</b></label>
+                        <label asp-for="Name"></label>
                         <div class="input-and-er">
-                            <input asp-for="Actor.Name" />
+                            <input asp-for="Name" />
                             <div class="error">
-                                <span asp-validation-for="Actor.Name"></span>
+                                <span asp-validation-for="Name"></span>
                             </div>
                         </div>
                     </div>
                     <div class="form-item">
                         <label for="email"><b>Email</b></label>
                         <div class="input-and-er">
-                            <input asp-for="Actor.Email" />
+                            <input asp-for="Email" />
                             <div class="error">
-                                <span asp-validation-for="Actor.Email"></span>
+                                <span asp-validation-for="Email"></span>
                             </div>
                         </div>
                     </div>
                     <div class="form-item">
                         <label for="psw"><b>Пароль</b></label>
                         <div class="input-and-er">
-                            <input type="password" asp-for="Actor.Password" />
+                            <input asp-for="Password" />
                             <div class="error">
-                                <span asp-validation-for="Actor.Password"></span>
+                                <span asp-validation-for="Password"></span>
                             </div>
                         </div>
                     </div>
@@ -51,9 +52,9 @@
                     <div class="form-item">
                         <label for="label"><b>Название лейбла</b></label>
                         <div class="input-and-er">
-                            <input asp-for="Actor.Label" />
+                            <input asp-for="Label" />
                             <div class="error">
-                                <span asp-validation-for="Actor.Label"></span>
+                                <span asp-validation-for="Label"></span>
                             </div>
                         </div>
                     </div>

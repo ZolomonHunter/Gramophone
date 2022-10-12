@@ -1,10 +1,11 @@
-﻿using Microsoft.Data.SqlClient.DataClassification;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.Data.SqlClient.DataClassification;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 namespace Gramophone.Models
 {
     [Table("Actors")]
-    public class Actor : User
+    public class Actor : IdentityUser
     {
         [Key]
         public List<Playlist>? Playlists { get; set; }
