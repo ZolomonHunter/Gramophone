@@ -31,7 +31,9 @@
                     <div class="form-item">
                         <label asp-for="Password"></label>
                         <div class="input-and-er">
-                            <input type="password" asp-for="Password" />
+                            <div class="input"> 
+                                <input type="password" asp-for="Password" />
+                            </div>
                             <div class="error">
                                 <span asp-validation-for="Password"></span>
                             </div>
@@ -40,7 +42,9 @@
                     <div class="form-item">
                         <label asp-for="CheckPassword"></label>
                         <div class="input-and-er">
-                            <input type="password" asp-for="CheckPassword" />
+                            <div class="input"> 
+                                <input type="password" asp-for="CheckPassword" />
+                            </div>
                             <div class="error">
                                 <span asp-validation-for="CheckPassword"></span>
                             </div>
