@@ -23,12 +23,13 @@ namespace Gramophone.Pages.Registration
         public string Email { get; set; }
         [Required(ErrorMessage = "Поле не может быть пустым")]
         [MinLength(8, ErrorMessage = "Пароль должен содержать минимум 8 символов")]
+        [RegularExpression("[0-9а-яА-яa-zA-Z!@#$%^&*]{8,}", ErrorMessage = "Недопустимые символы пароля")]
         [DataType(DataType.Password)]
         [Display(Name = "Пароль")]
         public string Password { get; set; }
         [Required(ErrorMessage = "Поле не может быть пустым")]
         [Compare("Password", ErrorMessage = "Пароли не совпадают")]
-        [DataType(DataType.Password)]
+        [DataType(DataType.Password)] 
         [Display(Name = "Подтверждение пароля")]
 
         public string CheckPassword { get; set; }

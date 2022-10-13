@@ -21,6 +21,7 @@ namespace Gramophone.Pages.Registration
         [Display(Name = "Электронная почта")]
         public string Email { get; set; }
         [Required(ErrorMessage = "Поле не может быть пустым")]
+        [RegularExpression("[0-9а-яА-яa-zA-Z!@#$%^&*]{8,}", ErrorMessage = "Недопустимые символы пароля")]
         [MinLength(8, ErrorMessage = "Пароль должен содержать минимум 8 символов")]
         [DataType(DataType.Password)]
         [Display(Name = "Пароль")]
