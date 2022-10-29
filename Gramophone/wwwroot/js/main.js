@@ -27,4 +27,7 @@ $(function(){
   })
 })
 
+const closePlayer = document.querySelector('#close');
+const windowPlayer = document.querySelector('#player');
 
+closePlayer.addEventListener('click', () => windowPlayer.classList.add('none-player'));
