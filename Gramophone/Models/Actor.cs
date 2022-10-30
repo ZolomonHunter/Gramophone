@@ -7,10 +7,10 @@ namespace Gramophone.Models
     [Table("Actors")]
     public class Actor : IdentityUser
     {
-        [Key]
         public List<Playlist>? Playlists { get; set; }
         [Required(ErrorMessage = "Поле не может быть пустым")]
         public string? Label { get; set; }
+        public List<Composition> Compositions { get; set; }
 
         public void AddPlayList(Playlist pl)
         {

@@ -4,6 +4,7 @@ using Gramophone.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Gramophone.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221030171511_AddCompositions")]
+    partial class AddCompositions
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -34,7 +36,7 @@ namespace Gramophone.Migrations
 
                     b.HasIndex("PlaylistsId");
 
-                    b.ToTable("ActorPlaylist", (string)null);
+                    b.ToTable("ActorPlaylist");
                 });
 
             modelBuilder.Entity("Gramophone.Models.Composition", b =>
@@ -78,7 +80,7 @@ namespace Gramophone.Migrations
 
                     b.HasIndex("ActorId");
 
-                    b.ToTable("Compositions", (string)null);
+                    b.ToTable("Compositions");
                 });
 
             modelBuilder.Entity("Gramophone.Models.Playlist", b =>
@@ -91,7 +93,7 @@ namespace Gramophone.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Playlists", (string)null);
+                    b.ToTable("Playlists");
                 });
 
             modelBuilder.Entity("ListenerPlaylist", b =>
@@ -106,7 +108,7 @@ namespace Gramophone.Migrations
 
                     b.HasIndex("UsersId");
 
-                    b.ToTable("ListenerPlaylist", (string)null);
+                    b.ToTable("ListenerPlaylist");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -315,14 +317,14 @@ namespace Gramophone.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.ToTable("Actors", (string)null);
+                    b.ToTable("Actors");
                 });
 
             modelBuilder.Entity("Gramophone.Models.Listener", b =>
                 {
                     b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
 
-                    b.ToTable("Listeners", (string)null);
+                    b.ToTable("Listeners");
                 });
 
             modelBuilder.Entity("ActorPlaylist", b =>

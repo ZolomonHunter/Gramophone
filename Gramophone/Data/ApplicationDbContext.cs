@@ -11,6 +11,8 @@ namespace Gramophone.Data
         {
         }
         public DbSet<Listener> Listeners { get; set; }
+        public DbSet<Actor> Actors { get; set; }
         public DbSet<Playlist> Playlists { get; set; }
+        public DbSet<Composition> Compositions { get; set; }
     }
 }
