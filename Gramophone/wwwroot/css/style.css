@@ -490,6 +490,11 @@ hr {
     display: flex;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
+.music-item .img img {
+    object-fit: cover;
+    width: 150px;
+    height: 150px;
+}
 
 .music-desc1 {
     margin-left: 10px;
@@ -856,6 +861,127 @@ i.fa-step-backward {
     font-size: 20px;
     text-overflow: ellipsis;
 }
+
+
+/* Создание плейлиста */
+.create-playlist .frame-playlists {
+    height: 100vh;
+}
+
+.create-playlist input[type=file] {
+    outline: 0;
+    opacity: 0;
+    pointer-events: none;
+    user-select: none
+}
+
+
+
+.create-playlist .label-cover {
+    margin: 0 60px;
+    background-color: #D9D9D9;
+    width: 200px;
+    height: 170px;
+    border: 2px dashed grey;
+    border-radius: 5px;
+    display: block;
+    padding: 1.2em;
+    transition: border 300ms ease;
+    cursor: pointer;
+    text-align: center
+}
+
+    .create-playlist .label-cover i {
+        display: block;
+        font-size: 42px;
+        padding-bottom: 16px
+    }
+
+    .create-playlist .label-cover i,
+    .create-playlist .label-cover .title-cover {
+        color: grey;
+        transition: 200ms color
+    }
+
+    .create-playlist .label-cover:hover {
+        border: 2px solid #000;
+    }
+
+        .create-playlist .label-cover:hover i,
+        .create-playlist .label-cover:hover .title-cover {
+            color: #000
+        }
+
+.create-playlist .albom {
+    margin: 20px auto;
+    width: 700px;
+    height: 300px;
+    text-align: center;
+}
+
+    .create-playlist .albom img {
+        width: 200px;
+        height: 200px;
+    }
+
+.create-playlist .title-albom {
+    font-size: 35px;
+    color: #000000;
+    margin-left: 30px;
+}
+
+.desc-creation-playlist {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+}
+
+    .desc-creation-playlist input {
+        width: 500px;
+        height: 60px;
+        background: #FFFFFF;
+        border: 1px solid #D4C4C4;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 25px;
+    }
+
+        .desc-creation-playlist input[placeholder] {
+            font-size: 20px;
+            padding-left: 10px;
+        }
+
+.create-playlist select {
+    width: 300px;
+    height: 51px;
+    background: #FFFFFF;
+    border: 1px solid #D4C4C4;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 25px;
+}
+
+.create-playlist .option-text, .create-playlist select {
+    font-family: 'Playfair Display';
+    letter-spacing: 0.05em;
+    color: #4F4F4F;
+    font-size: 20px;
+    margin-left: 10px;
+}
+
+.createbtn-text {
+    font-size: 20px;
+}
+
+.createbtn {
+    position: absolute;
+    top: 830px;
+    left: 1000px;
+    width: 150px;
+    height: 50px;
+    background: rgba(212, 197, 197, 0.72);
+    border: 1px solid #000000;
+    border-radius: 20px;
+}
+
 
 
 @keyframes bounce {
