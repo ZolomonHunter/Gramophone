@@ -5,6 +5,7 @@ namespace Gramophone.Pages
 {
     public class SearchModel : PageModel
     {
+        public string SearchString { get; set; }
         public void OnGet()
         {
         }

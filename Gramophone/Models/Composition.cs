@@ -5,6 +5,18 @@ namespace Gramophone.Models
 {
     public class Composition
     {
+        //TODO delete this and get comps from db
+        public Composition(string name, string author, double duration, int year, string genre, string cover, string audio)
+        {
+            Name = name;
+            Author = author;
+            Duration = duration;
+            Year = year;
+            Genre = genre;
+            Cover = cover;
+            Audio = audio;
+        }
+
         [Key]
         public int Id { get; set; }
         public string Name { get; set; }
@@ -15,6 +27,8 @@ namespace Gramophone.Models
         public string Genre { get; set; }
         public string Cover { get; set; }
         public string Audio { get; set; }
+
+       
 
     }
 }
