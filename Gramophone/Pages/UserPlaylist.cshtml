@@ -1,0 +1,79 @@
+﻿@page
+@model Gramophone.Pages.UserPlaylistModel
+@{
+    <div class="player-nav">
+      <div class="player-menu">
+        <div class="searching">
+          <input
+            type="search"
+            placeholder="Трек, альбом, исполнитель"
+            class="search-field"
+          />
+          <img src="images/search.png" alt="" class="search-icon" />
+        </div>
+
+        <div class="btn-menu">
+          <a href="#">Моя музыка</a>
+        </div>
+        <div class="btn-menu">
+          <a href="#">Рекомендации</a>
+        </div>
+        <div class="btn-menu">
+          <a href="#">Новинки</a>
+        </div>
+        <div class="btn-menu">
+          <a href="index.html">Главная</a>
+        </div>
+      </div>
+    </div>
+
+    <section class="my-playlists">
+      <div class="container">
+        <div class="frame-playlists">
+          <div class="user-desc">
+            <div class="avatar">
+              <img src="images/my-playlists/image 5.png" alt="" />
+            </div>
+            <div class="text-user-desc">
+              <div class="title-my">МОЯ МУЗЫКА</div>
+              <div class="nikname">Никнейм</div>
+            </div>
+          </div>
+          <hr />
+          <div class="title-item-playlists">
+            <h3 class="playlists-title">Мои плейлисты</h3>
+            <h3 class="text-add">Создать плейлист</h3>
+            <img class="add-playlist" src="images/my-playlists/image 47.png" alt="" />
+          </div>
+
+          <div class="my-playlists-items">
+            <div class="my-playlists-item">
+              <img class='my-playlists-foto' src="images/my-playlists/latte_menu 2.png" alt="">
+              <div class="my-playlist-name">Любимая музыка</div>
+            </div>
+            <div class="my-playlists-item">
+              <img class='my-playlists-foto' src="images/playlists/sleep.png" alt="">
+              <div class="my-playlist-name">Для сна</div>
+            </div>
+            <div class="my-playlists-item">
+              <img class='my-playlists-foto' src="images/my-playlists/image 38.png" alt="">
+              <div class="my-playlist-name">YAMAKASI</div>
+            </div>
+            <div class="my-playlists-item">
+              <img class='my-playlists-foto' src="images/my-playlists/image 39.png" alt="">
+              <div class="my-playlist-name">Жить в кайф</div>
+            </div>
+            <div class="my-playlists-item">
+              <img class='my-playlists-foto' src="images/my-playlists/image 40.png" alt="">
+              <div class="my-playlist-name">Planet Her</div>
+            </div>
+            <div class="my-playlists-item">
+              <img class='my-playlists-foto' src="images/my-playlists/image 41.png" alt="">
+              <div class="my-playlist-name">Полный вперёд!</div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </section>
+}
