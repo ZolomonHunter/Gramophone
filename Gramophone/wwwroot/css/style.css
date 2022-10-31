@@ -405,8 +405,13 @@ input {
         color: #8E8080;
     }
 
-.search-icon {
+button .search-icon {
     background: #D5C5C5;
+    border-radius: 20px;
+}
+
+.search button {
+    border: none;
     border-radius: 20px;
 }
 
