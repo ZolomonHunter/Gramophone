@@ -1,0 +1,91 @@
+﻿@page
+@model Gramophone.Pages.MusicianAlbomModel
+@{
+    <div class="player-nav">
+      <div class="player-menu">
+        <div class="searching">
+          <input
+            type="search"
+            placeholder="Трек, альбом, исполнитель"
+            class="search-field"
+          />
+          <img src="images/search.png" alt="" class="search-icon" />
+        </div>
+
+        <div class="btn-menu">
+          <a href="#">Моя музыка</a>
+        </div>
+        <div class="btn-menu">
+          <a href="#">Рекомендации</a>
+        </div>
+        <div class="btn-menu">
+          <a href="#">Новинки</a>
+        </div>
+        <div class="btn-menu">
+          <a href="index.html">Главная</a>
+        </div>
+      </div>
+    </div>
+
+    <section class="my-playlists">
+      <div class="container">
+        <div class="frame-playlists">
+          <div class="user-desc">
+            <div class="avatar">
+              <img src="images/musicianalb/image 42.png" alt="" />
+            </div>
+            <div class="text-user-desc">
+              <div class="title-my">МОЯ АЛЬБОМЫ</div>
+              <div class="nikname">Melanie Martinez</div>
+            </div>
+          </div>
+          <hr />
+          <div class="title-item-playlists">
+            <h3 class="playlists-title">Мои альбомы</h3>
+            <h3 class="text-add">Создать плейлист</h3>
+            <img
+              class="add-playlist"
+              src="images/my-playlists/image 47.png"
+              alt=""
+            />
+          </div>
+
+          <div class="my-playlists-items">
+            <div class="my-playlists-item">
+              <img
+                class="my-playlists-foto"
+                src="images/musicianalb/image 43.png"
+                alt=""
+              />
+              <div class="my-playlist-name">K-12</div>
+            </div>
+            <div class="my-playlists-item">
+              <img
+                class="my-playlists-foto"
+                src="images/musicianalb/image 44.png"
+                alt=""
+              />
+              <div class="my-playlist-name">Fire Drill</div>
+            </div>
+            <div class="my-playlists-item">
+              <img
+                class="my-playlists-foto"
+                src="images/musicianalb/image 45.png"
+                alt=""
+              />
+              <div class="my-playlist-name">Pity Party</div>
+            </div>
+            <div class="my-playlists-item">
+              <img
+                class="my-playlists-foto"
+                src="images/musicianalb/image 46.png"
+                alt=""
+              />
+              <div class="my-playlist-name">Cry Baby</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+}
