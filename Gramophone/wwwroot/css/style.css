@@ -981,6 +981,53 @@ i.fa-step-backward {
     border: 1px solid #000000;
     border-radius: 20px;
 }
+.playlist-modal a {
+    text-decoration: none;
+    color: #000000;
+}
+
+.playlist-modal li {
+    height: 50px;
+    list-style-type: none;
+    border-width: 1px 1px 1px 1px;
+    border-style: solid;
+    border-radius: 5px;
+    border-color: #D4C4C4;
+}
+
+.playlist-modal {
+    font-family: 'Playfair Display';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+}
+
+.modal-body .searching input {
+    width: 241px;
+}
+
+.modal-body .searching button {
+    border: none;
+    border-radius: 20px;
+}
+
+.modal-body .music-item .img img {
+    object-fit: cover;
+    width: 50px;
+    height: 50px;
+}
+
+.modal-body .music-item {
+    margin-top: 20px;
+}
+
+    .modal-body .music-item .name {
+        font-size: 15px;
+    }
+
+.modal-body .musician, .modal-body .music-time {
+    font-size: 10px;
+}
 
 
 
