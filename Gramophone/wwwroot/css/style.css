@@ -981,10 +981,6 @@ i.fa-step-backward {
     border: 1px solid #000000;
     border-radius: 20px;
 }
-.playlist-modal a {
-    text-decoration: none;
-    color: #000000;
-}
 
 .playlist-modal li {
     height: 50px;
