@@ -1025,6 +1025,30 @@ i.fa-step-backward {
     font-size: 10px;
 }
 
+.to-listen {
+    text-align: center;
+    font-size: 20px;
+    margin-top: 20px;
+    width: 183px;
+    height: 54px;
+    background: #D4C4C4;
+    border-radius: 50px;
+}
+
+.my-playlists .search {
+    margin-left: 120px;
+}
+
+.playlist-comp .img img {
+    width: 100px;
+    height: 100px;
+}
+
+.playlist-comp .list-music {
+    height: 100%;
+    margin: 20px 60px;
+}
+
 
 
 @keyframes bounce {
