@@ -19,8 +19,6 @@ namespace Gramophone.Pages
         public async Task OnGetAsync()
         {
             // TODO take from db and sort here instead in view
-            /*CompositionsExample temp = new CompositionsExample();
-            Compositions = temp.Compositions;*/
             if (String.IsNullOrEmpty(SearchString))
                 Compositions = _db.Compositions.ToList();
             else{
