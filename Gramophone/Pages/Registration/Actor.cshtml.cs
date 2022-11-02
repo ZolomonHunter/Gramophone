@@ -37,9 +37,8 @@ namespace Gramophone.Pages.Registration
         public string Label { get; set; }
 
 
-        public ActorModel(ApplicationDbContext db, UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager)
+        public ActorModel(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager)
         {
-            _db = db;
             _userManager = userManager;
             _signInManager = signInManager;
         }

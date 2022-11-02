@@ -7,19 +7,9 @@ namespace Gramophone.Models
     [Table("Actors")]
     public class Actor : IdentityUser
     {
-        public List<Playlist>? Playlists { get; set; }
+        public List<Albom>? Alboms { get; set; }
         [Required(ErrorMessage = "Поле не может быть пустым")]
         public string? Label { get; set; }
         public List<Composition> Compositions { get; set; }
-
-        public void AddPlayList(Playlist pl)
-        {
-            Playlists.Add(pl);
-        }
-
-        public void ChangeLabel(string lb)
-        {
-            Label = lb;
-        }
     }
 }

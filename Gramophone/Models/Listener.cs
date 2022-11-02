@@ -7,6 +7,7 @@ namespace Gramophone.Models
     [Table("Listeners")]
     public class Listener : IdentityUser
     {
-        public List<Playlist>? Playlist { get; set; }
+        public List<Playlist>? CreatedPlaylists { get; set; }
+        public List<Playlist>? SubscribedPlaylists { get; set; }
     }
 }
