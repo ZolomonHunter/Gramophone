@@ -32,44 +32,23 @@
     <section class="res-search">
         <div class="container">
             <div class="list-music">
-                @if (string.IsNullOrEmpty(Model.SearchString)) {
-                    @foreach (var composition in Model.Compositions) {
-                        <div class="music-item">
-                            <div class="img">
-                                <img src="@composition.Cover" alt="" />
-                            </div>
-                            <div class="music-desc1">
-                                <div class="name">@composition.Name</div>
-                                <!-- TODO change to actor name -->
-                                <div class="musician">@composition.Author</div>
-                            </div>
-                            <div class="music-desc2">
-                                <div class="like"><img src="images/like.png" alt="" /></div>
-                                <div class="music-time">@composition.Duration.ToString().Remove(0, 3)</div>
-                            </div>
+                @foreach (var composition in Model.Compositions) {
+                    <div class="music-item">
+                        <div class="img">
+                            <img src="@composition.Cover" alt="" />
                         </div>
-                    }
+                        <div class="music-desc1">
+                            <div class="name">@composition.Name</div>
+                            <!-- TODO change to actor name -->
+                            <div class="musician">@composition.Author</div>
+                        </div>
+                        <div class="music-desc2">
+                            <div class="like"><img src="images/like.png" alt="" /></div>
+                            <div class="music-time">@composition.Duration.ToString().Remove(0, 3).Remove(5)</div>
+                        </div>
+                    </div>
                 }
-                else {
-                    @foreach (var composition in Model.Compositions) {
-                        @if (composition.Name.ToLower().Contains(Model.SearchString.ToLower())) {
-                            <div class="music-item">
-                                <div class="img">
-                                    <img src="@composition.Cover" alt="" />
-                                </div>
-                                <div class="music-desc1">
-                                    <div class="name">@composition.Name</div>
-                                    <!-- TODO change to actor name -->
-                                    <div class="musician">@composition.Author</div>
-                                </div>
-                                <div class="music-desc2">
-                                    <div class="like"><img src="images/like.png" alt="" /></div>
-                                    <div class="music-time">@composition.Duration.ToString().Remove(0, 3)</div>
-                                </div>
-                            </div>
-                        }
-                    }
-                }
+            }
         <!--<div class="music-item">
                 <div class="img">
                     <img src="images/popular-music/shape.png" alt="" />
