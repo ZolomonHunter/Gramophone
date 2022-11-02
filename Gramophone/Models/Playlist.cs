@@ -14,6 +14,7 @@ namespace Gramophone.Models
         [InverseProperty("SubscribedPlaylists")]
         public List<Listener> Subscribers { get; set; }
         public List<Composition> Compositions { get; set; }
+        public string Cover { get; set; }
 
     }
 }

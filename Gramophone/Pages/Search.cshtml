@@ -45,7 +45,7 @@
                             </div>
                             <div class="music-desc2">
                                 <div class="like"><img src="images/like.png" alt="" /></div>
-                                <div class="music-time">@composition.Duration</div>
+                                <div class="music-time">@composition.Duration.ToString().Remove(0, 3)</div>
                             </div>
                         </div>
                     }
@@ -64,8 +64,7 @@
                                 </div>
                                 <div class="music-desc2">
                                     <div class="like"><img src="images/like.png" alt="" /></div>
-                                    <!-- TODO need to fix double to formal string coversion -->
-                                    <div class="music-time">@composition.Duration</div>
+                                    <div class="music-time">@composition.Duration.ToString().Remove(0, 3)</div>
                                 </div>
                             </div>
                         }

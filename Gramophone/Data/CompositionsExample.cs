@@ -10,8 +10,8 @@ namespace Gramophone.Data
         public CompositionsExample()
         {
             Compositions = new List<Composition>();
-            Composition comp1 = new Composition("Faded", "Alan Walker", 0.5, 2015, "Pop", "images/play-now-music/faded.png", "music/Faded.mp3");
-            Composition comp2 = new Composition("Stay", "The Kid LAROI", 0.5, 2021, "Pop", "images/play-now-music/stay.png", "music/stay.mp3");
+            Composition comp1 = new Composition("Faded", "Alan Walker", new TimeSpan(0, 0, 30), 2015, "Pop", "images/play-now-music/faded.png", "music/Faded.mp3");
+            Composition comp2 = new Composition("Stay", "The Kid LAROI", new TimeSpan(0, 0, 30), 2021, "Pop", "images/play-now-music/stay.png", "music/stay.mp3");
             Compositions.Add(comp1);
             Compositions.Add(comp2);
         }

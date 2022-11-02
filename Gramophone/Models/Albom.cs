@@ -9,5 +9,6 @@ namespace Gramophone.Models
         public string Name { get; set; }
         public Actor Owner { get; set; }
         public List<Composition>? Compositions { get; set; }
+        public string Cover { get; set; }
     }
 }

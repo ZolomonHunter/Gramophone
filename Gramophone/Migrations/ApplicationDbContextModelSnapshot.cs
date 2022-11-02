@@ -22,6 +22,21 @@ namespace Gramophone.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
+            modelBuilder.Entity("CompositionPlaylist", b =>
+                {
+                    b.Property<int>("CompositionsId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("InPlaylistsId")
+                        .HasColumnType("int");
+
+                    b.HasKey("CompositionsId", "InPlaylistsId");
+
+                    b.HasIndex("InPlaylistsId");
+
+                    b.ToTable("CompositionPlaylist");
+                });
+
             modelBuilder.Entity("Gramophone.Models.Albom", b =>
                 {
                     b.Property<int>("Id")
@@ -29,6 +44,10 @@ namespace Gramophone.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Cover")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -70,8 +89,8 @@ namespace Gramophone.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<double>("Duration")
-                        .HasColumnType("float");
+                    b.Property<long>("Duration")
+                        .HasColumnType("bigint");
 
                     b.Property<string>("Genre")
                         .IsRequired()
@@ -81,9 +100,6 @@ namespace Gramophone.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("PlaylistId")
-                        .HasColumnType("int");
-
                     b.Property<int>("Year")
                         .HasColumnType("int");
 
@@ -92,8 +108,6 @@ namespace Gramophone.Migrations
                     b.HasIndex("ActorId");
 
                     b.HasIndex("AlbomId");
-
-                    b.HasIndex("PlaylistId");
 
                     b.ToTable("Compositions");
                 });
@@ -105,6 +119,10 @@ namespace Gramophone.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Cover")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -351,6 +369,21 @@ namespace Gramophone.Migrations
                     b.ToTable("Listeners");
                 });
 
+            modelBuilder.Entity("CompositionPlaylist", b =>
+                {
+                    b.HasOne("Gramophone.Models.Composition", null)
+                        .WithMany()
+                        .HasForeignKey("CompositionsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Gramophone.Models.Playlist", null)
+                        .WithMany()
+                        .HasForeignKey("InPlaylistsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("Gramophone.Models.Albom", b =>
                 {
                     b.HasOne("Gramophone.Models.Actor", "Owner")
@@ -369,10 +402,6 @@ namespace Gramophone.Migrations
                     b.HasOne("Gramophone.Models.Albom", null)
                         .WithMany("Compositions")
                         .HasForeignKey("AlbomId");
-
-                    b.HasOne("Gramophone.Models.Playlist", null)
-                        .WithMany("Compositions")
-                        .HasForeignKey("PlaylistId");
 
                     b.Navigation("Actor");
                 });
@@ -471,11 +500,6 @@ namespace Gramophone.Migrations
                 });
 
             modelBuilder.Entity("Gramophone.Models.Albom", b =>
-                {
-                    b.Navigation("Compositions");
-                });
-
-            modelBuilder.Entity("Gramophone.Models.Playlist", b =>
                 {
                     b.Navigation("Compositions");
                 });

@@ -29,7 +29,7 @@
 
     <section class="my-playlists">
         <div class="container">
-            <form action="" class="create-playlist">
+            <form method="post" enctype="multipart/form-data" class="create-playlist">
                 <div class="frame-playlists">
                     <div class="playlists-title">Создание нового альбома</div>
                     <hr />
@@ -41,11 +41,11 @@
                                      alt="" />
                             </i>
                             <span class="title-cover">Добавить обложку</span>
-                            <input type="file" />
+                            <input asp-for="Cover" type="file" />
                         </label>
                         <div class="text-input">
                             <label for="name-playlist">
-                                <input type="text" placeholder="Название альбома" />
+                                <input asp-for="Name" type="text" placeholder="Название альбома" />
                             </label>
                         </div>
                     </div>
@@ -58,7 +58,7 @@
                                  alt="" />
                         </i>
                         <span class="title-albom">Перенесите аудиофайлы</span>
-                        <input type="file" />
+                        <input asp-for="Files" type="file" multiple/>
                     </label>
 
 
