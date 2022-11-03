@@ -46,7 +46,6 @@ namespace Gramophone.Pages
             foreach (var formFile in Files)
             {
                 Composition composition = new Composition();
-                composition.Name = formFile.Name;
                 composition.Audio = "music/" + formFile.FileName;
                 composition.Cover = "images/alboms/" + Cover.FileName;
                 // TODO все что снизу переделать нахуй
@@ -57,21 +56,20 @@ namespace Gramophone.Pages
                 // TODO add actor as loggined user
 
                 var filePath = Path.Combine(imageDirectory, Cover.FileName);
-
                 using (var stream = System.IO.File.Create(filePath))
                     await formFile.CopyToAsync(stream);
 
-                if (formFile.Length > 0)
-                {
-                    filePath = Path.Combine(musicDirectory, formFile.FileName);
+                filePath = Path.Combine(musicDirectory, formFile.FileName);
+                composition.Name = Path.GetFileNameWithoutExtension(filePath);
 
-                    using (var stream = System.IO.File.Create(filePath))
-                    {
-                        await formFile.CopyToAsync(stream);
-                    }
-                    Mp3FileReader reader = new Mp3FileReader(filePath);
-                    composition.Duration = reader.TotalTime;
+                using (var stream = System.IO.File.Create(filePath))
+                {
+                    await formFile.CopyToAsync(stream);
                 }
+
+                Mp3FileReader reader = new Mp3FileReader(filePath);
+                composition.Duration = reader.TotalTime;
+
                 albom.Compositions.Add(composition);
 
             }
