@@ -10,6 +10,7 @@ namespace Gramophone.Pages.Registration
     [BindProperties]
     public class ActorModel : PageModel
     {
+         private readonly ApplicationDbContext _db;
         private readonly UserManager<IdentityUser> _userManager;
         private readonly SignInManager<IdentityUser> _signInManager;
         [Required(ErrorMessage = "Поле не может быть пустым")]

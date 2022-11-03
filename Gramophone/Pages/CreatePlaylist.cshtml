@@ -1,129 +1,146 @@
 ﻿@page
 @model Gramophone.Pages.CreatePlaylistModel
+
 @{
     <div class="player-nav">
-        <div class="player-menu">
-            <form action="" class="search">
-                <div class="searching">
-                    <input type="search"
-                           placeholder="Sting"
-                           class="search-field" />
-                    <button><img src="images/search.png" alt="" class="search-icon" /></button>
-                </div>
-            </form>
+                <div class="player-menu">
+                    <form action="" class="search">
+                        <div class="searching">
+                            <input type="search"
+                                   placeholder="Sting"
+                                   class="search-field" />
+                            <button><img src="images/search.png" alt="" class="search-icon" /></button>
+                        </div>
+                    </form>
 
-            <div class="btn-menu">
-                <a href="#">Моя музыка</a>
-            </div>
-            <div class="btn-menu">
-                <a href="#">Рекомендации</a>
-            </div>
-            <div class="btn-menu">
-                <a href="#">Новинки</a>
-            </div>
-            <div class="btn-menu">
-                <a href="index.html">Главная</a>
-            </div>
-        </div>
+                    <div class="btn-menu">
+                        <a href="#">Моя музыка</a>
+                    </div>
+                    <div class="btn-menu">
+                        <a href="#">Рекомендации</a>
+                    </div>
+                    <div class="btn-menu">
+                        <a href="#">Новинки</a>
+                    </div>
+                    <div class="btn-menu">
+                        <a href="index.html">Главная</a>
+                    </div>
+                </div>
     </div>
 
     <section class="my-playlists">
-        <div class="container">
-            <form action="" class="create-playlist">
-                <div class="frame-playlists">
-                    <div class="playlists-title">Создание нового плейлиста</div>
-                    <hr />
-                    <div class="desc-creation-playlist">
-                        <label class="label-cover">
-                            <i class="cover-icons">
-                                <img class="add-playlist"
-                                     src="images/my-playlists/image 47.png"
-                                     alt="" />
-                            </i>
-                            <span class="title-cover">Добавить обложку</span>
-                            <input type="file" />
-                        </label>
-                        <div class="text-input">
-                            <label for="name-playlist">
-                                <input type="text" placeholder="Название плейлиста" />
-                            </label>
-                            <label for="desc-playlist">
-                                <input type="text" placeholder="Описание плейлиста" />
-                            </label>
-                        </div>
-                    </div>
-                    <hr>
-                    <select name="add-music" id='openmodal'>
-                        <option class="option-text">Добавить аудио</option>
-                        <option class="option-text" value="openmodaloption1">Из плейлистов</option>
-                        <option class="option-text" value="openmodaloption2">Из глобального поиска</option>
-                    </select>
-                    <div id="modal1" class="modal fade" role="dialog">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h4 class="modal-title">Из плейлистов</h4>
-                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                </div>
-                                <div class="modal-body">
-                                    <ul class="playlist-modal" id="playlist-item">
-                                        <li value='openmodalplaylist1'>Любимая музыка</li>
-                                        <li>Для сна</li>
-                                        <li>YAMAKASI</li>
-                                        <li>Жить в кайф</li>
-                                        <li>Planet Her</li>
-                                        <li>Полный вперёд!</li>
-                                    </ul>
+                <div class="container">
+                    <form action="" class="create-playlist">
+                        <div class="frame-playlists">
+                            <div class="playlists-title">Создание нового плейлиста</div>
+                            <hr />
+                            <div class="desc-creation-playlist">
+                                <label class="label-cover">
+                                    <i class="cover-icons">
+                                        <img class="add-playlist"
+                                             src="images/my-playlists/image 47.png"
+                                             alt="" />
+                                    </i>
+                                    <span class="title-cover">Добавить обложку</span>
+                                    <input type="file" />
+                                </label>
+                                <div class="text-input">
+                                    <label for="name-playlist">
+                                      <input asp-for="Name" type="text"  placeholder="Название плейлиста" />
+                                    </label>
+                                    <label for="desc-playlist">
+                                <input asp-for="Description" type="text" placeholder="Описание плейлиста" />
+                                    </label>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-
-
-                    <div id="modal2" class="modal fade" role="dialog">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h4 class="modal-title">Из глобального поиска</h4>
-                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                </div>
-                                <div class="modal-body">
-                                    <form action="" class="search">
-                                        <div class="searching">
-                                            <input type="search"
-                                                   placeholder="Sting"
-                                                   class="search-field" />
-                                            <button><img src="images/search.png" alt="" class="search-icon" /></button>
+                            <hr>
+                            <select name="add-music" id='openmodal'>
+                                <option class="option-text">Добавить аудио</option>
+                                <option class="option-text" value="openmodaloption1">Из плейлистов</option>
+                                <option class="option-text" value="openmodaloption2">Из глобального поиска</option>
+                            </select>
+                            <div id="modal1" class="modal fade" role="dialog">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h4 class="modal-title">Из плейлистов</h4>
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
                                         </div>
-                                    </form>
-                                    <div class="list-music">
-
-                                        <div class="music-item">
-                                            <div class="img">
-                                                <img src="images/popular-music/shape.png" alt="" />
-                                            </div>
-                                            <div class="music-desc1">
-                                                <div class="name">Shape of my heart</div>
-                                                <div class="musician">Sting</div>
-                                            </div>
-                                            <div class="music-desc2">
-                                                <div class="like"><img src="images/my-playlists/image 47.png" alt="" /></div>
-                                                <div class="music-time">4:36</div>
-                                            </div>
+                                        <div class="modal-body">
+                                            <ul class="playlist-modal" id="playlist-item">
+                                                <li value='openmodalplaylist1'>Любимая музыка</li>
+                                                <li>Для сна</li>
+                                                <li>YAMAKASI</li>
+                                                <li>Жить в кайф</li>
+                                                <li>Planet Her</li>
+                                                <li>Полный вперёд!</li>
+                                            </ul>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+
+
+                            <div id="modal2" class="modal fade" role="dialog" data-backdrop="static" data-keyboard="false">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h4 class="modal-title">Из глобального поиска</h4>
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form onclick="return false;" action="" class="search">
+                                                <div class="searching">
+                                                    <input type="search"
+                                               placeholder="Sting"
+                                               class="search-field"
+                                               asp-for="SearchString" />
+                                                    <button type="submit"><img src="images/search.png" alt="" class="search-icon" /></button>
+                                                </div>
+                                            </form>
+                                             
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br/>
+                            <div class="list-music">
+                            <br /><br /><br />
+                                                @foreach (var composition in Model.Compositions)
+                                        {
+                                                    <div class="music-item">
+                                                        <div class="img">
+                                                            <img src="@composition.Cover" alt="" />
+                                                        </div>
+                                                        <div class="music-desc1">
+                                                            <div class="name">@composition.Name</div>
+                                                            <!-- TODO change to actor name -->
+                                                            <div class="musician">@composition.Author</div>
+                                                        </div>
+                                                        <div class="music-desc2">
+                                                            <div class="like"><img src="images/like.png" alt="" /></div>
+                                                            <div class="music-time">@composition.Duration.ToString().Remove(0, 3).Remove(5)</div>
+                                                        </div>
+                                                             </div>
+                                    <button type="button" onclick="@{await AddToList(composition);}">Добавить</button>
+
+                                                     
+                                        }
+                                            </div>
+              
+
+                            <button type="submit" class="createbtn">
+                                <div class="createbtn-text">Создать</div>
+                            </button>
                         </div>
-                    </div>
+                    </form>
 
-
-
-                    <button type="submit" class="createbtn">
-                        <div class="createbtn-text">Создать</div>
-                    </button>
                 </div>
-            </form>
-        </div>
     </section>
+  @functions{
+      async Task AddToList(Models.Composition c)
+      {
+            Model.AddedCompositions.Add(c);
+      }
+  }   
 }
