@@ -1,0 +1,273 @@
+﻿@page
+@model Gramophone.Pages.PersonalAreaModel
+@{
+    <div class="player-nav">
+      <div class="player-menu">
+        <form action="" class="search">
+          <div class="searching">
+            <input
+              type="search"
+              placeholder="Трек, имя исполнителя"
+              class="search-field"
+            />
+            <button>
+              <img src="images/search.png" alt="" class="search-icon" />
+            </button>
+          </div>
+        </form>
+
+        <div class="btn-menu">
+          <a href="#">Моя музыка</a>
+        </div>
+        <div class="btn-menu">
+          <a href="#">Рекомендации</a>
+        </div>
+        <div class="btn-menu">
+          <a href="#">Новинки</a>
+        </div>
+        <div class="btn-menu">
+          <a href="index.html">Главная</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="personal-area">
+      <nav class="personal-area-nav" id="personal-menu">
+        <ul>
+          <li class="personal-area-nav-item">
+            <button id="main">
+              <img src="images/personal-area-icon/image 2.svg" alt="" /> Главная
+            </button>
+          </li>
+          <li class="personal-area-nav-item">
+            <button id="personal">
+              <img src="images/personal-area-icon/image 3.svg" alt="" />Личные
+              данные
+            </button>
+          </li>
+          <li class="personal-area-nav-item">
+            <button id="safe">
+              <img
+                src="images/personal-area-icon/image 4.svg"
+                alt=""
+              />Безопасность
+            </button>
+          </li>
+        </ul>
+      </nav>
+
+      <section class="tab personal-area-change" id="personal">
+        <form action="" class="personal-area-change-form">
+          <img src="images/my-playlists/image 5.png" alt="" />
+          <div class="nickname">
+            <div class="title-input">Никнейм</div>
+            <input
+              type="text"
+              class="personal-area-change-input nickname-input"
+            />
+          </div>
+          <input
+            class="personal-area-change-input"
+            type="file"
+            style="width: 180px; margin-top: 10px"
+          />
+          <div>
+            <div class="title-input">Имя</div>
+            <input type="text" class="personal-area-change-input name-input" />
+          </div>
+          <div>
+            <div class="title-input">Фамилия</div>
+            <input type="text" class="personal-area-change-input name-input" />
+          </div>
+
+          <fieldset>
+            <legend class="title-input">Выберите свой пол</legend>
+            <div>
+              <input type="checkbox" name="sex" value="man" />
+              <label for="man" class="title-input letter">М</label>
+            </div>
+            <div>
+              <input type="checkbox" name="sex" value="woman" />
+              <label for="woman" class="title-input letter">Ж</label>
+            </div>
+          </fieldset>
+          <div>
+            <div class="title-input">Дата рождения</div>
+            <input type="date" class="personal-area-change-input name-input" />
+          </div>
+          <button type="submit" class="button-personal">Сохранить</button>
+        </form>
+      </section>
+
+      <section class="tab safe-window" id="safe">
+        <div class="safe-item">
+          <div class="safe-title">Телефон</div>
+          <div class="safe-item-value">
+            <img src="images/personal-area-icon/phone.svg" alt="" />
+            <div class="safe-text">+7 *** ***-**-99</div>
+            <button class="safe-button">
+              <img
+                src="images/personal-area-icon/change.svg"
+                alt=""
+                id="change-phone"
+              />
+            </button>
+          </div>
+        </div>
+
+        <div class="safe-item">
+          <div class="safe-title">Email</div>
+          <div class="safe-item-value">
+            <img src="images/personal-area-icon/email.svg" alt="" />
+            <div class="safe-text">vk***inbox.ru</div>
+            <button class="safe-button">
+              <img
+                src="images/personal-area-icon/change.svg"
+                alt=""
+                id="change-email1"
+              />
+            </button>
+          </div>
+        </div>
+
+        <div class="safe-item">
+          <div class="safe-title">Запасной Email</div>
+          <div class="safe-item-value">
+            <img src="images/personal-area-icon/email.svg" alt="" />
+            <div class="safe-text">vk***inbox.ru</div>
+            <button class="safe-button">
+              <img
+                src="images/personal-area-icon/change.svg"
+                alt=""
+                id="change-email2"
+              />
+            </button>
+          </div>
+        </div>
+
+        <div class="safe-item">
+          <div class="safe-title">Контрольный вопрос</div>
+          <div class="safe-item-value">
+            <img
+              src="images/personal-area-icon/question.svg"
+              alt=""
+              style="margin: 0 10px"
+            />
+            <div class="safe-text">Девичья фамилия матери?</div>
+            <button class="safe-button">
+              <img
+                src="images/personal-area-icon/change.svg"
+                alt=""
+                id="change-question"
+              />
+            </button>
+          </div>
+        </div>
+
+        <div class="safe-item">
+          <div class="safe-item-value">
+            <img
+              src="images/personal-area-icon/password.svg"
+              alt=""
+              style="margin: 0 9px"
+            />
+            <button class="change-password-btn">
+              <div class="safe-text" id="change-password">Обновить пароль</div>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section class="change-phone window" id="change-phone">
+        <form action="">
+          <div class="safe-title">Ваш текущий пароль</div>
+          <input class="safe-text phone-input" type="password" />
+          <div class="safe-title">Новый номер телефона</div>
+          <input class="safe-text phone-input" type="text" />
+          <div class="safe-title">Код из смс</div>
+          <input class="safe-text phone-input" type="text" />
+          <button type="submit" class="button-personal">Продолжить</button>
+        </form>
+      </section>
+
+      <section class="change-password window" id="change-password">
+        <form action="">
+          <div class="safe-title">Ваш текущий пароль</div>
+          <input class="safe-text phone-input" type="password" />
+          <div class="safe-title">Новый пароль</div>
+          <input class="safe-text phone-input" type="password" />
+          <div class="safe-title">Повторите пароль</div>
+          <input class="safe-text phone-input" type="password" />
+          <button type="submit" class="button-personal">Продолжить</button>
+        </form>
+      </section>
+
+      <section class="change-email window" id="change-email1">
+        <form action="">
+          <div class="safe-title">Ваш текущий пароль</div>
+          <input class="safe-text phone-input" type="password" />
+          <div class="safe-title">Новый email</div>
+          <input class="safe-text phone-input" type="email" />
+          <div class="safe-title">Повторите новый email</div>
+          <input class="safe-text phone-input" type="email" />
+          <button type="submit" class="button-personal">Продолжить</button>
+        </form>
+      </section>
+
+      <section class="change-email window" id="change-email2">
+        <form action="">
+          <div class="safe-title">Ваш текущий пароль</div>
+          <input class="safe-text phone-input" type="password" />
+          <div class="safe-title">Новый email</div>
+          <input class="safe-text phone-input" type="email" />
+          <div class="safe-title">Повторите новый email</div>
+          <input class="safe-text phone-input" type="email" />
+          <button type="submit" class="button-personal">Продолжить</button>
+        </form>
+      </section>
+
+      <section class="change-question window" id="change-question">
+        <form action="">
+          <div class="safe-title">Введите ответ на прошлый вопрос</div>
+          <input class="safe-text phone-input" type="text" />
+          <div class="safe-title">Введите новый контрольный вопрос</div>
+          <input class="safe-text phone-input" type="text" />
+          <div class="safe-title">Введите новый ответ</div>
+          <input class="safe-text phone-input" type="text" />
+          <button type="submit" class="button-personal">Продолжить</button>
+        </form>
+      </section>
+
+      <section class="tab personal-area-change" id="main" style="height: 330px">
+        <div class="main-personal-area">
+          <img src="images/my-playlists/image 5.png" alt="" />
+          <div class="main-personal-area-item" style="margin-left: 60px">
+            <div class="safe-title">Никнейм</div>
+            <div class="safe-text main-desc">pupuchek</div>
+            <div class="safe-title">Имя</div>
+            <div class="safe-text main-desc">Леся</div>
+          </div>
+
+          <div class="main-personal-area-item">
+            <div class="safe-title">Фамилия</div>
+            <div class="safe-text main-desc">Сидорова</div>
+          </div>
+
+          <div class="main-personal-area-item">
+            <div class="safe-title">Телефон</div>
+            <div class="safe-text main-desc">+7 *** ***-**-99</div>
+          </div>
+
+          <div class="main-personal-area-item">
+            <div class="safe-title">Email</div>
+            <div class="safe-text main-desc">vk***inbox.ru</div>
+          </div>
+
+          <div class="main-personal-area-item">
+            <div class="safe-title">Дата рождения</div>
+            <div class="safe-text main-desc">11.11.2001</div>
+          </div>
+        </div>
+      </section>
+    </div>
+}

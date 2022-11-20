@@ -45,3 +45,28 @@ $("#openmodal").on("change", function () {
         $('#modal2').modal('show');
     }
 });
+
+var tabs = document.getElementById("personal-menu");
+
+tabs.addEventListener("click", function (ev) {
+    var hideElement1 = document.getElementsByClassName("tab");
+    var hideElement2 = document.getElementsByClassName("window");
+    for (i = 0; i < hideElement1.length; i++) {
+        hideElement1[i].classList.remove("display");
+        hideElement2[i].classList.remove("display");
+    }
+    var showElemtn = document.querySelectorAll("#" + ev.target.id)[1];
+    console.log(showElemtn);
+    showElemtn.classList.toggle("display");
+});
+
+var proceed = document.querySelectorAll("#safe")[1];
+
+proceed.addEventListener("click", function (ev) {
+    var hideElement = document.getElementsByClassName("window");
+    for (i = 0; i < hideElement.length; i++) {
+        hideElement[i].classList.remove("display");
+    }
+    var showElemtn = document.querySelectorAll("#" + ev.target.id)[1];
+    showElemtn.classList.toggle("display");
+});
