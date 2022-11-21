@@ -1,6 +1,33 @@
 ﻿@page
 @model Gramophone.Pages.MainPlayerModel
 
+<div class="player-nav">
+    <div class="player-menu">
+        <form action="" class="search">
+            <div class="searching">
+                <input type="search"
+                       placeholder="Sting"
+                       class="search-field" />
+                <button><img src="images/search.png" alt="" class="search-icon" /></button>
+            </div>
+        </form>
+
+        <div class="btn-menu">
+            <a href="#">Моя музыка</a>
+        </div>
+        <div class="btn-menu">
+            <a href="#">Рекомендации</a>
+        </div>
+        <div class="btn-menu">
+            <a href="#">Новинки</a>
+        </div>
+        <div class="btn-menu">
+            <a href="/Player">Главная</a>
+        </div>
+    </div>
+</div>
+
+
 <div class="main-player">
     <div class="wrapper">
         <div class="details">
