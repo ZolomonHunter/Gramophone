@@ -11,7 +11,7 @@ namespace Gramophone.Pages
     public class LoginModel : PageModel
     {
 
-        private readonly SignInManager<IdentityUser> _signInManager;
+        private readonly SignInManager<UserApp> _signInManager;
         [Required(ErrorMessage = "Поле не может быть пустым")]
         [Display(Name = "Имя пользователя")]
         public string Name { get; set; }
@@ -19,7 +19,7 @@ namespace Gramophone.Pages
         [DataType(DataType.Password)]
         [Display(Name = "Пароль")]
         public string Password { get; set; }
-        public LoginModel(SignInManager<IdentityUser> signInManager)
+        public LoginModel(SignInManager<UserApp> signInManager)
         {
             _signInManager = signInManager;
         }

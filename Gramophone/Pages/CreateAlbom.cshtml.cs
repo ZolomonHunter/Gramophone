@@ -12,7 +12,7 @@ namespace Gramophone.Pages
 {
     public class CreateAlbomModel : PageModel
     {
-        private readonly UserManager<IdentityUser> _userManager;
+        private readonly UserManager<UserApp> _userManager;
         private readonly ApplicationDbContext _db;
         private readonly string musicDirectory =  Path.Combine(Environment.CurrentDirectory, "wwwroot\\music");
         private readonly string imageDirectory = Path.Combine(Environment.CurrentDirectory, "wwwroot\\images\\alboms");
@@ -27,7 +27,7 @@ namespace Gramophone.Pages
         public IFormFile Cover { get; set; }
 
 
-        public CreateAlbomModel(UserManager<IdentityUser> userManager, ApplicationDbContext db)
+        public CreateAlbomModel(UserManager<UserApp> userManager, ApplicationDbContext db)
         {
             _userManager = userManager;
             _db = db;

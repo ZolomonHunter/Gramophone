@@ -12,7 +12,7 @@ namespace Gramophone.Pages
     [BindProperties(SupportsGet = true)]
     public class CreatePlaylistModel : PageModel
     {
-        private readonly UserManager<IdentityUser> _userManager;
+        private readonly UserManager<UserApp> _userManager;
         private readonly ApplicationDbContext _db;
         private readonly string musicDirectory = Path.Combine(Environment.CurrentDirectory, "wwwroot\\music");
 
@@ -23,7 +23,7 @@ namespace Gramophone.Pages
         [BindProperty]
         public string Description { get; set; }
         public string? SearchString { get; set; }
-        public CreatePlaylistModel(UserManager<IdentityUser> userManager, ApplicationDbContext db)
+        public CreatePlaylistModel(UserManager<UserApp> userManager, ApplicationDbContext db)
         {
             _userManager = userManager;
             _db = db;

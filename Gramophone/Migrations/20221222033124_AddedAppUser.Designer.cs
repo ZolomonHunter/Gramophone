@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Gramophone.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20221102045039_CompositionsInPlaylists")]
-    partial class CompositionsInPlaylists
+    [Migration("20221222033124_AddedAppUser")]
+    partial class AddedAppUser
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -353,9 +353,34 @@ namespace Gramophone.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("Gramophone.Models.Actor", b =>
+            modelBuilder.Entity("Gramophone.Models.UserApp", b =>
                 {
                     b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
+
+                    b.Property<string>("BirthDay")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ConfirmedQuestion")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FirstName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LastName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NickName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool?>("Sex")
+                        .HasColumnType("bit");
+
+                    b.ToTable("UserApp");
+                });
+
+            modelBuilder.Entity("Gramophone.Models.Actor", b =>
+                {
+                    b.HasBaseType("Gramophone.Models.UserApp");
 
                     b.Property<string>("Label")
                         .IsRequired()
@@ -366,7 +391,7 @@ namespace Gramophone.Migrations
 
             modelBuilder.Entity("Gramophone.Models.Listener", b =>
                 {
-                    b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
+                    b.HasBaseType("Gramophone.Models.UserApp");
 
                     b.ToTable("Listeners");
                 });
@@ -483,9 +508,18 @@ namespace Gramophone.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Gramophone.Models.Actor", b =>
+            modelBuilder.Entity("Gramophone.Models.UserApp", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
+                        .WithOne()
+                        .HasForeignKey("Gramophone.Models.UserApp", "Id")
+                        .OnDelete(DeleteBehavior.ClientCascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Gramophone.Models.Actor", b =>
+                {
+                    b.HasOne("Gramophone.Models.UserApp", null)
                         .WithOne()
                         .HasForeignKey("Gramophone.Models.Actor", "Id")
                         .OnDelete(DeleteBehavior.ClientCascade)
@@ -494,7 +528,7 @@ namespace Gramophone.Migrations
 
             modelBuilder.Entity("Gramophone.Models.Listener", b =>
                 {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
+                    b.HasOne("Gramophone.Models.UserApp", null)
                         .WithOne()
                         .HasForeignKey("Gramophone.Models.Listener", "Id")
                         .OnDelete(DeleteBehavior.ClientCascade)

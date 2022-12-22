@@ -11,8 +11,8 @@ namespace Gramophone.Pages.Registration
     public class ActorModel : PageModel
     {
          private readonly ApplicationDbContext _db;
-        private readonly UserManager<IdentityUser> _userManager;
-        private readonly SignInManager<IdentityUser> _signInManager;
+        private readonly UserManager<UserApp> _userManager;
+        private readonly SignInManager<UserApp> _signInManager;
         [Required(ErrorMessage = "Поле не может быть пустым")]
         [Display(Name = "Имя пользователя")]
         public string Name { get; set; }
@@ -38,7 +38,7 @@ namespace Gramophone.Pages.Registration
         public string Label { get; set; }
 
 
-        public ActorModel(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager)
+        public ActorModel(UserManager<UserApp> userManager, SignInManager<UserApp> signInManager)
         {
             _userManager = userManager;
             _signInManager = signInManager;

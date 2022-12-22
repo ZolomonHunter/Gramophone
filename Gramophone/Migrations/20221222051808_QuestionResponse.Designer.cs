@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Gramophone.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20221030171511_AddCompositions")]
-    partial class AddCompositions
+    [Migration("20221222051808_QuestionResponse")]
+    partial class QuestionResponse
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -24,19 +24,45 @@ namespace Gramophone.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("ActorPlaylist", b =>
+            modelBuilder.Entity("CompositionPlaylist", b =>
                 {
-                    b.Property<string>("ActorsId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<int>("PlaylistsId")
+                    b.Property<int>("CompositionsId")
                         .HasColumnType("int");
 
-                    b.HasKey("ActorsId", "PlaylistsId");
+                    b.Property<int>("InPlaylistsId")
+                        .HasColumnType("int");
 
-                    b.HasIndex("PlaylistsId");
+                    b.HasKey("CompositionsId", "InPlaylistsId");
 
-                    b.ToTable("ActorPlaylist");
+                    b.HasIndex("InPlaylistsId");
+
+                    b.ToTable("CompositionPlaylist");
+                });
+
+            modelBuilder.Entity("Gramophone.Models.Albom", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Cover")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("OwnerId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("OwnerId");
+
+                    b.ToTable("Albom");
                 });
 
             modelBuilder.Entity("Gramophone.Models.Composition", b =>
@@ -50,6 +76,9 @@ namespace Gramophone.Migrations
                     b.Property<string>("ActorId")
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<int?>("AlbomId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Audio")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -62,8 +91,8 @@ namespace Gramophone.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<double>("Duration")
-                        .HasColumnType("float");
+                    b.Property<long>("Duration")
+                        .HasColumnType("bigint");
 
                     b.Property<string>("Genre")
                         .IsRequired()
@@ -80,6 +109,8 @@ namespace Gramophone.Migrations
 
                     b.HasIndex("ActorId");
 
+                    b.HasIndex("AlbomId");
+
                     b.ToTable("Compositions");
                 });
 
@@ -91,22 +122,127 @@ namespace Gramophone.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
+                    b.Property<string>("Cover")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("OwnerId")
+                        .HasColumnType("nvarchar(450)");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("OwnerId");
 
                     b.ToTable("Playlists");
                 });
 
-            modelBuilder.Entity("ListenerPlaylist", b =>
+            modelBuilder.Entity("Gramophone.Models.UserApp", b =>
                 {
-                    b.Property<int>("PlaylistId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("UsersId")
+                    b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
 
-                    b.HasKey("PlaylistId", "UsersId");
+                    b.Property<int>("AccessFailedCount")
+                        .HasColumnType("int");
 
-                    b.HasIndex("UsersId");
+                    b.Property<string>("BirthDay")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ConfirmedQuestion")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Cover")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<bool>("EmailConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("FirstName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LastName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("LockoutEnabled")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTimeOffset?>("LockoutEnd")
+                        .HasColumnType("datetimeoffset");
+
+                    b.Property<string>("NickName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NormalizedEmail")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("NormalizedUserName")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("PasswordHash")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("PhoneNumberConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("QuestionResponse")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SecondEmail")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SecurityStamp")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool?>("Sex")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("TwoFactorEnabled")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("UserName")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NormalizedEmail")
+                        .HasDatabaseName("EmailIndex");
+
+                    b.HasIndex("NormalizedUserName")
+                        .IsUnique()
+                        .HasDatabaseName("UserNameIndex")
+                        .HasFilter("[NormalizedUserName] IS NOT NULL");
+
+                    b.ToTable("AspNetUsers", (string)null);
+                });
+
+            modelBuilder.Entity("ListenerPlaylist", b =>
+                {
+                    b.Property<int>("SubscribedPlaylistsId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("SubscribersId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("SubscribedPlaylistsId", "SubscribersId");
+
+                    b.HasIndex("SubscribersId");
 
                     b.ToTable("ListenerPlaylist");
                 });
@@ -161,71 +297,6 @@ namespace Gramophone.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("AspNetRoleClaims", (string)null);
-                });
-
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUser", b =>
-                {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<int>("AccessFailedCount")
-                        .HasColumnType("int");
-
-                    b.Property<string>("ConcurrencyStamp")
-                        .IsConcurrencyToken()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Email")
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
-
-                    b.Property<bool>("EmailConfirmed")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("LockoutEnabled")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTimeOffset?>("LockoutEnd")
-                        .HasColumnType("datetimeoffset");
-
-                    b.Property<string>("NormalizedEmail")
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
-
-                    b.Property<string>("NormalizedUserName")
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
-
-                    b.Property<string>("PasswordHash")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PhoneNumber")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("PhoneNumberConfirmed")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("SecurityStamp")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("TwoFactorEnabled")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("UserName")
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("NormalizedEmail")
-                        .HasDatabaseName("EmailIndex");
-
-                    b.HasIndex("NormalizedUserName")
-                        .IsUnique()
-                        .HasDatabaseName("UserNameIndex")
-                        .HasFilter("[NormalizedUserName] IS NOT NULL");
-
-                    b.ToTable("AspNetUsers", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
@@ -311,7 +382,7 @@ namespace Gramophone.Migrations
 
             modelBuilder.Entity("Gramophone.Models.Actor", b =>
                 {
-                    b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
+                    b.HasBaseType("Gramophone.Models.UserApp");
 
                     b.Property<string>("Label")
                         .IsRequired()
@@ -322,24 +393,33 @@ namespace Gramophone.Migrations
 
             modelBuilder.Entity("Gramophone.Models.Listener", b =>
                 {
-                    b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
+                    b.HasBaseType("Gramophone.Models.UserApp");
 
                     b.ToTable("Listeners");
                 });
 
-            modelBuilder.Entity("ActorPlaylist", b =>
+            modelBuilder.Entity("CompositionPlaylist", b =>
                 {
-                    b.HasOne("Gramophone.Models.Actor", null)
+                    b.HasOne("Gramophone.Models.Composition", null)
                         .WithMany()
-                        .HasForeignKey("ActorsId")
+                        .HasForeignKey("CompositionsId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Gramophone.Models.Playlist", null)
                         .WithMany()
-                        .HasForeignKey("PlaylistsId")
+                        .HasForeignKey("InPlaylistsId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("Gramophone.Models.Albom", b =>
+                {
+                    b.HasOne("Gramophone.Models.Actor", "Owner")
+                        .WithMany("Alboms")
+                        .HasForeignKey("OwnerId");
+
+                    b.Navigation("Owner");
                 });
 
             modelBuilder.Entity("Gramophone.Models.Composition", b =>
@@ -348,20 +428,33 @@ namespace Gramophone.Migrations
                         .WithMany("Compositions")
                         .HasForeignKey("ActorId");
 
+                    b.HasOne("Gramophone.Models.Albom", null)
+                        .WithMany("Compositions")
+                        .HasForeignKey("AlbomId");
+
                     b.Navigation("Actor");
+                });
+
+            modelBuilder.Entity("Gramophone.Models.Playlist", b =>
+                {
+                    b.HasOne("Gramophone.Models.Listener", "Owner")
+                        .WithMany("CreatedPlaylists")
+                        .HasForeignKey("OwnerId");
+
+                    b.Navigation("Owner");
                 });
 
             modelBuilder.Entity("ListenerPlaylist", b =>
                 {
                     b.HasOne("Gramophone.Models.Playlist", null)
                         .WithMany()
-                        .HasForeignKey("PlaylistId")
+                        .HasForeignKey("SubscribedPlaylistsId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Gramophone.Models.Listener", null)
                         .WithMany()
-                        .HasForeignKey("UsersId")
+                        .HasForeignKey("SubscribersId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
@@ -377,7 +470,7 @@ namespace Gramophone.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
+                    b.HasOne("Gramophone.Models.UserApp", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -386,7 +479,7 @@ namespace Gramophone.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
+                    b.HasOne("Gramophone.Models.UserApp", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -401,7 +494,7 @@ namespace Gramophone.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
+                    b.HasOne("Gramophone.Models.UserApp", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -410,7 +503,7 @@ namespace Gramophone.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
+                    b.HasOne("Gramophone.Models.UserApp", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -419,7 +512,7 @@ namespace Gramophone.Migrations
 
             modelBuilder.Entity("Gramophone.Models.Actor", b =>
                 {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
+                    b.HasOne("Gramophone.Models.UserApp", null)
                         .WithOne()
                         .HasForeignKey("Gramophone.Models.Actor", "Id")
                         .OnDelete(DeleteBehavior.ClientCascade)
@@ -428,16 +521,28 @@ namespace Gramophone.Migrations
 
             modelBuilder.Entity("Gramophone.Models.Listener", b =>
                 {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
+                    b.HasOne("Gramophone.Models.UserApp", null)
                         .WithOne()
                         .HasForeignKey("Gramophone.Models.Listener", "Id")
                         .OnDelete(DeleteBehavior.ClientCascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Gramophone.Models.Actor", b =>
+            modelBuilder.Entity("Gramophone.Models.Albom", b =>
                 {
                     b.Navigation("Compositions");
+                });
+
+            modelBuilder.Entity("Gramophone.Models.Actor", b =>
+                {
+                    b.Navigation("Alboms");
+
+                    b.Navigation("Compositions");
+                });
+
+            modelBuilder.Entity("Gramophone.Models.Listener", b =>
+                {
+                    b.Navigation("CreatedPlaylists");
                 });
 #pragma warning restore 612, 618
         }

@@ -9,7 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
 builder.Services.AddDbContext<ApplicationDbContext>(option=>option.UseSqlServer(
         builder.Configuration.GetConnectionString("DefaultString")));
-builder.Services.AddIdentity<IdentityUser, IdentityRole>(options =>{
+builder.Services.AddIdentity<UserApp, IdentityRole>(options =>{
     options.User.RequireUniqueEmail = true;
     options.Password.RequiredLength = 8;
     options.Password.RequireNonAlphanumeric = false;

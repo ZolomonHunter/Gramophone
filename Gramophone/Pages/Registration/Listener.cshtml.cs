@@ -12,8 +12,8 @@ namespace Gramophone.Pages.Registration
     public class ListenerModel : PageModel
     {
         private readonly ApplicationDbContext _db;
-        private readonly UserManager<IdentityUser> _userManager;
-        private readonly SignInManager<IdentityUser> _signInManager;
+        private readonly UserManager<UserApp> _userManager;
+        private readonly SignInManager<UserApp> _signInManager;
         [Required(ErrorMessage = "Поле не может быть пустым")]
         [Display(Name = "Имя пользователя")]
         public string Name { get; set; }
@@ -35,7 +35,7 @@ namespace Gramophone.Pages.Registration
         public string CheckPassword { get; set; }
 
 
-        public ListenerModel(ApplicationDbContext db, UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager)
+        public ListenerModel(ApplicationDbContext db, UserManager<UserApp> userManager, SignInManager<UserApp> signInManager)
         {
             _db = db;
             _userManager = userManager;
